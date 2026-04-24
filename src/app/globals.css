@@ -1,0 +1,96 @@
+/* Updated: 2025-12-24T12:50:55.485Z */
+/* Updated: 2025-12-24T10:32:17.691Z */
+/* Updated: 2025-12-24T10:30:05.372Z */
+/* Updated: 2025-12-23T15:54:30.296Z */
+/* Updated: 2025-12-23T15:25:34.919Z */
+/* Updated: 2025-12-23T15:24:36.987Z */
+/* Updated: 2025-12-23T15:24:03.848Z */
+/* Updated: 2025-12-22T14:50:47.158Z */
+/* Updated: 2025-12-22T14:33:43.763Z */
+/* Updated: 2025-12-22T10:49:58.725Z */
+/* Updated: 2025-12-22T10:32:20.558Z */
+/* Updated: 2025-12-22T09:28:14.758Z */
+/* Updated: 2025-12-22T09:03:53.600Z */
+/* Updated: 2025-12-22T08:56:39.625Z */
+/* Updated: 2025-12-22T08:54:58.998Z */
+/* Updated: 2025-12-22T08:51:42.737Z */
+/* Updated: 2025-12-22T08:37:59.677Z */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: #ffffff;
+  --color-elegant-gray: #2C2C2C;
+  --color-light-gray: #F5F5F5;
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-montserrat);
+  --font-body: var(--font-inter);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0px; /* Luxury often uses sharp corners */
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --gold: #D4AF37;
+  --border: #e5e5e5;
+  --input: #f5f5f5;
+  --ring: #D4AF37;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --gold: #D4AF37;
+  --border: #2C2C2C;
+  --input: #1a1a1a;
+  --ring: #D4AF37;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-gold { color: var(--gold); }
+  .bg-gold { background-color: var(--gold); }
+  .border-gold { border-color: var(--gold); }
+  
+  .luxury-button {
+    @apply relative overflow-hidden px-8 py-3 bg-black text-white hover:text-gold transition-colors duration-300;
+  }
+  
+  .luxury-button::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 transition-transform duration-300 origin-right;
+  }
+  
+  .luxury-button:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+}
